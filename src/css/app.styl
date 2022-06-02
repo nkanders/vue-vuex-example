@@ -1,0 +1,22 @@
+// app global css
+@import "transitions.styl"
+.q-table__container {
+  width: 100vw;
+}
+.q-table__bottom {
+  position: fixed;
+  bottom: 0;
+  background: #fff;
+  justify-content: start;
+  width: 100vw;
+
+  > .q-table__control {
+    visibility: hidden;
+
+    &:last-child {
+      visibility: visible;
+      order: -1;
+    }
+  }
+}
+

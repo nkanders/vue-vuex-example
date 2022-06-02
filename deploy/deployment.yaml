@@ -1,0 +1,50 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: dripio-dashboard
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      run: dripio-dashboard
+  template:
+    metadata:
+      labels:
+        run: dripio-dashboard
+    spec:
+      containers:
+        - image: gcr.io/atlantean-force-165018/dripio-dashboard:v1.25
+          imagePullPolicy: Always
+          name: dripio-dashboard
+          ports:
+            - containerPort: 80
+              protocol: TCP
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 60
+            periodSeconds: 30
+            timeoutSeconds: 3
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 60
+            periodSeconds: 30
+            timeoutSeconds: 3
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dripio-dashboard-service
+  namespace: default
+spec:
+  selector:
+    run: dripio-dashboard
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+  type: NodePort

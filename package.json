@@ -1,0 +1,55 @@
+{
+  "name": "dripio-control-panel",
+  "version": "0.0.1",
+  "description": "Let's Grow Together!",
+  "productName": "Dripio Control Panel",
+  "cordovaId": "org.dripio.control.app.com",
+  "author": "des",
+  "private": true,
+  "scripts": {
+    "lint": "eslint --ext .js,.vue src",
+    "test": "echo \"See package.json => scripts for available tests.\" && exit 0",
+    "test:unit": "jest --updateSnapshot",
+    "test:unit:coverage": "jest --coverage",
+    "test:unit:watch": "jest --watch",
+    "test:unit:watchAll": "jest --watchAll",
+    "serve:test:coverage": "quasar serve test/jest/coverage/lcov-report/ --port 8788",
+    "concurrently:dev:jest": "concurrently \"quasar dev\" \"jest --watch\"",
+    "test:unit:ui": "majestic",
+    "test:e2e": "cypress open",
+    "test:e2e:CI": "cypress run"
+  },
+  "dependencies": {
+    "@quasar/extras": "^1.0.0",
+    "axios": "^0.19.0",
+    "axios-jsonp": "^1.0.2",
+    "flags-dropdown-vue": "^1.0.3",
+    "quasar": "^1.0.0-beta.0",
+    "vue-animate": "0.0.4",
+    "vue-country-flag": "^1.2.3",
+    "vue-flag-icon": "^1.0.6"
+  },
+  "devDependencies": {
+    "@quasar/app": "^1.0.0-beta.0",
+    "@quasar/quasar-app-extension-testing": "^1.0.0",
+    "@quasar/quasar-app-extension-testing-e2e-cypress": "^1.0.0-beta.10",
+    "@quasar/quasar-app-extension-testing-unit-jest": "^1.0.0",
+    "@vue/eslint-config-standard": "^4.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.10.0",
+    "eslint-loader": "^2.1.1",
+    "eslint-plugin-vue": "^5.0.0",
+    "majestic": "^1.2.24",
+    "strip-ansi": "^3.0.1",
+    "vue-gravatar": "^1.3.0",
+    "vuelidate": "^0.7.4"
+  },
+  "engines": {
+    "node": ">= 8.9.0",
+    "npm": ">= 5.6.0",
+    "yarn": ">= 1.6.0"
+  },
+  "browserslist": [
+    "last 1 version, not dead, ie >= 11"
+  ]
+}

@@ -1,0 +1,19 @@
+apiVersion: networking.gke.io/v1beta1
+kind: ManagedCertificate
+metadata:
+  name: dashboard-dripio-com
+spec:
+  domains:
+    - dashboard.dripio.com
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: dripio-dashboard-https
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: 'dripio-dashboard'
+    networking.gke.io/managed-certificates: dashboard-dripio-com
+spec:
+  backend:
+    serviceName: dripio-dashboard-service
+    servicePort: 80

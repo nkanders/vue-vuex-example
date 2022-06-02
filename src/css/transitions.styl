@@ -1,0 +1,34 @@
+.slide-enter {
+
+}
+
+.slide-enter-active {
+  animation: slide-in 0.5s ease-out forwards;
+}
+
+.slide-leave {
+  animation: slide-out 0.8s ease-out forwards;
+}
+
+.slide-leave-active {
+  animation: slide-out 0.8s ease-out forwards;
+}
+
+
+@keyframes slide-in {
+  from {
+    transform: translateY(120px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-out {
+  from {
+    transform: translateY(-50%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
